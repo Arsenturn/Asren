@@ -1,4 +1,6 @@
 from pathlib import Path
+
+from django.conf.global_settings import STATIC_ROOT
 from dotenv import load_dotenv
 import os
 
@@ -135,8 +137,9 @@ MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'ky')
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-DIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
