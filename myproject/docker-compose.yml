@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  web:
+  django:
     build: .
     command: >
       bash -c "./manage.py collectstatic --noinput && ./manage.py makemigrations && ./manage.py migrate && gunicorn -b 0.0.0.0:8000 myproject.wsgi:application"
@@ -33,7 +33,7 @@ services:
       - static_volume:/app/static
       - media_volume:/app/media
     depends_on:
-      - web
+      - django
 
 volumes:
   postgres_data:
